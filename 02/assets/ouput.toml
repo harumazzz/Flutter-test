@@ -1,0 +1,155 @@
+# các loại: dialog, sentence, song, story
+type = "dialog"
+
+# thông tin về audio
+[audio]
+src = "ouput.oga"
+rate = "48000"
+channels = 1
+language = "vn"
+
+# các thông tin về text và định dạng
+[text]
+# đoạn text thuần, timestamp dựa trên đoạn text này
+data = "Chào Lan! Mình là James, đến từ Hoa Kỳ. Rất vui được gặp bạn. Chào James! Mình là Lan, đến từ Việt Nam. Rất vui được làm quen với bạn. Bạn làm nghề gì vậy, Lan? Mình là cô giáo dạy ngoại ngữ. Còn bạn? Mình là kỹ sư hàng không. Nghe thú vị quá! Bạn đến Việt Nam lâu chưa? Mình mới đến đây được vài ngày. Hy vọng bạn sẽ thích Việt Nam! Cảm ơn Lan!"
+
+# chi tiết phần hội thoại giữa hai nhân vật
+dialog = [
+    { speaker = "James", text = "Chào Lan! Mình là James, đến từ Hoa Kỳ. Rất vui được gặp bạn." },
+    { speaker = "Lan", text = "Chào James! Mình là Lan, đến từ Việt Nam. Rất vui được làm quen với bạn." },
+    { speaker = "James", text = "Bạn làm nghề gì vậy, Lan?" },
+    { speaker = "Lan", text = "Mình là cô giáo dạy ngoại ngữ. Còn bạn?" },
+    { speaker = "James", text = "Mình là kỹ sư hàng không." },
+    { speaker = "Lan", text = "Nghe thú vị quá! Bạn đến Việt Nam lâu chưa?" },
+    { speaker = "James", text = "Mình mới đến đây được vài ngày." },
+    { speaker = "Lan", text = "Hy vọng bạn sẽ thích Việt Nam!" },
+    { speaker = "James", text = "Cảm ơn Lan!" },
+]
+
+# định dạng của text
+format = [
+    # position: vị trí cần định dạng - (Vị trị bắt dầu, Chuỗi nội dung, Độ dài của chuỗi nội dung)
+    # style: các thuộc tính để định dạng - (Màu chữ, Có in đậm không?, Có nghiêng không?, Có gạch chân không?)
+    # hyperlink: đường link dẫn (nếu có) - (Url đường dẫn,)
+    { position = [5, "Lan", 3], style = { color = "#5D8736", bold = true, italic = false, underline = false }, hyperlink = { url = "https://en.wikipedia.org/wiki/Vietnam" } },
+    { position = [135, "Bạn làm nghề gì vậy", 19], style = { color = "#5E2736", bold = true, italic = true, underline = false }, hyperlink = { url = "https://en.wikipedia.org/wiki/Vietnam" } },
+    # ....
+]
+
+
+# Thông tin dữ liệu timestamp để đánh dấu từ:
+# [
+#  Thời gian đã trôi qua kể từ lúc file wav được phát (mili-second),
+#  Thời gian để phát âm từ hiện tại sắp được phát âm (mili-second),
+#  Đánh dấu là chữ hay dấu - 0 là chữ còn 1 là dấu,
+#  Chuỗi kí tự hiện tại đang nhắc đến,
+#  Vị trí bắt đầu của từ, tại vị trí đầu tiên của từ,
+#  Độ dài của từ,
+# ]
+[timestamp]
+data = [
+    [75, 188, 0, "Chào", 0, 4],
+    [275, 388, 0, "Lan", 5, 3],
+    [675, 100, 1, "!", 8, 1],
+    [1050, 225, 0, "Mình", 10, 4],
+    [1287, 188, 0, "là", 15, 2],
+    [1487, 388, 0, "James", 18, 5],
+    [1975, 213, 1, ",", 23, 1],
+    [2187, 213, 0, "đến", 25, 3],
+    [2412, 250, 0, "từ", 29, 2],
+    [2675, 213, 0, "Hoa", 32, 3],
+    [2900, 463, 0, "Kỳ", 36, 2],
+    [3375, 100, 1, ".", 38, 1],
+    [3762, 175, 0, "Rất", 40, 3],
+    [3950, 225, 0, "vui", 44, 3],
+    [4187, 200, 0, "được", 48, 4],
+    [4400, 163, 0, "gặp", 53, 3],
+    [4575, 400, 0, "bạn", 57, 3],
+    [4987, 100, 1, ".", 60, 1],
+    [5337, 213, 0, "Chào", 62, 4],
+    [5612, 250, 0, "James", 67, 5],
+    [5900, 50, 1, "!", 72, 1],
+    [6787, 213, 0, "Mình", 74, 4],
+    [7025, 163, 0, "là", 79, 2],
+    [7212, 325, 0, "Lan", 82, 3],
+    [7600, 188, 1, ",", 85, 1],
+    [7800, 238, 0, "đến", 87, 3],
+    [8087, 138, 0, "từ", 91, 2],
+    [8250, 200, 0, "Việt", 94, 4],
+    [8487, 250, 0, "Nam", 99, 3],
+    [8762, 50, 1, ".", 102, 1],
+    [9637, 175, 0, "Rất", 104, 3],
+    [9862, 225, 0, "vui", 108, 3],
+    [10125, 163, 0, "được", 112, 4],
+    [10312, 225, 0, "làm", 117, 3],
+    [10575, 213, 0, "quen", 121, 4],
+    [10825, 188, 0, "với", 126, 3],
+    [11050, 288, 0, "bạn", 130, 3],
+    [11362, 25, 1, ".", 133, 1],
+    [12262, 200, 0, "Bạn", 135, 3],
+    [12475, 200, 0, "làm", 139, 3],
+    [12687, 275, 0, "nghề", 143, 4],
+    [12975, 213, 0, "gì", 148, 2],
+    [13200, 388, 0, "vậy", 151, 3],
+    [13675, 300, 1, ",", 154, 1],
+    [13975, 388, 0, "Lan", 156, 3],
+    [14375, 100, 1, "?", 159, 1],
+    [14725, 225, 0, "Mình", 161, 4],
+    [14975, 150, 0, "là", 166, 2],
+    [15212, 113, 0, "cô", 169, 2],
+    [15387, 175, 0, "giáo", 172, 4],
+    [15612, 200, 0, "dạy", 177, 3],
+    [15862, 213, 0, "ngoại", 181, 5],
+    [16125, 288, 0, "ngữ", 187, 3],
+    [16475, 13, 1, ".", 190, 1],
+    [17325, 188, 0, "Còn", 192, 3],
+    [17587, 325, 0, "bạn", 196, 3],
+    [17925, 25, 1, "?", 199, 1],
+    [18800, 213, 0, "Mình", 201, 4],
+    [19025, 200, 0, "là", 206, 2],
+    [19237, 238, 0, "kỹ", 209, 2],
+    [19487, 213, 0, "sư", 212, 2],
+    [19712, 250, 0, "hàng", 215, 4],
+    [19975, 413, 0, "không", 220, 5],
+    [20400, 100, 1, ".", 225, 1],
+    [20750, 200, 0, "Nghe", 227, 4],
+    [21025, 138, 0, "thú", 232, 3],
+    [21175, 188, 0, "vị", 236, 2],
+    [21450, 300, 0, "quá", 239, 3],
+    [21787, 13, 1, "!", 242, 1],
+    [22637, 213, 0, "Bạn", 244, 3],
+    [22912, 213, 0, "đến", 248, 3],
+    [23137, 175, 0, "Việt", 252, 4],
+    [23350, 225, 0, "Nam", 257, 3],
+    [23587, 163, 0, "lâu", 261, 3],
+    [23812, 225, 0, "chưa", 265, 4],
+    [24075, 13, 1, "?", 269, 1],
+    [24962, 175, 0, "Mình", 271, 4],
+    [25150, 150, 0, "mới", 276, 3],
+    [25312, 188, 0, "đến", 280, 3],
+    [25512, 213, 0, "đây", 284, 3],
+    [25737, 225, 0, "được", 288, 4],
+    [25975, 200, 0, "vài", 293, 3],
+    [26187, 438, 0, "ngày", 297, 4],
+    [26637, 100, 1, ".", 301, 1],
+    [26987, 163, 0, "Hy", 303, 2],
+    [27187, 213, 0, "vọng", 306, 4],
+    [27462, 188, 0, "bạn", 311, 3],
+    [27675, 163, 0, "sẽ", 315, 2],
+    [27900, 113, 0, "thích", 318, 5],
+    [28075, 175, 0, "Việt", 324, 4],
+    [28275, 288, 0, "Nam", 329, 3],
+    [28587, 25, 1, "!", 332, 1],
+    [29500, 213, 0, "Cảm", 334, 3],
+    [29725, 188, 0, "ơn", 338, 2],
+    [29925, 388, 0, "Lan", 341, 3],
+    [30325, 100, 1, "!", 344, 1]
+]
+
+# Các sự kiện tại các thời điểm
+# Thứ tự: [Thời gian bắt đầu sự kiện (tính theo milliseconds), Tên sự kiện, Tài nguyên đính kèm]
+[event]
+data = [
+    [50, "change-image", "james-say-hello-to-lan.jpg"],
+    [5337, "change-image", "lan-say-hello-to-james.jpg"],
+]
