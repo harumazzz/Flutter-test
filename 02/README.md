@@ -16,12 +16,12 @@
     trigger thay đổi assets trong StatefulWidget và gọi setState để UI được làm mới. Hàm thay đổi
     thời gian:
 
-````dart
+```dart
 _timer = Timer.periodic(Duration(milliseconds: 1), (timer) {
       int currentTime = timer.tick; // Thời gian tính theo mili giây
       _changeImageBasedOnTimestamp(currentTime);
 });
-	```
+```
 
 ```dart
 void _changeImageBasedOnTimestamp(int currentTime) {
@@ -33,8 +33,9 @@ void _changeImageBasedOnTimestamp(int currentTime) {
 }
 ```
 
-- Để chơi được âm thanh, sử dụng `audioplayers`
-```dart
+-   Để chơi được âm thanh, sử dụng `audioplayers`
+
+````dart
 // Documentation vì GPT gen code lỗi đoạn này : https://pub.dev/packages/audioplayers
 _audioPlayer = AudioPlayer();
 _audioPlayer.setReleaseMode(ReleaseMode.stop);
@@ -93,10 +94,13 @@ final List<Map<String, dynamic>> dialog = [
       "timestamp": 29500,
     },
   ];
-  ```
+````
 
-  - Mặc định, Text không có sự kiện onTap. Wrap nó trong một `GestureDetector` với phương thức onTap. Sử dụng hàm seek để đi đến timestamp mà đã lọc từ sẵn khi nhấn vào. Khi người dùng chạm vào dòng hội thoại nào thì sẽ bắt đầu chơi lại từ đoạn đó.
-  ```dart
+-   Mặc định, Text không có sự kiện onTap. Wrap nó trong một `GestureDetector` với phương thức
+    onTap. Sử dụng hàm seek để đi đến timestamp mà đã lọc từ sẵn khi nhấn vào. Khi người dùng chạm
+    vào dòng hội thoại nào thì sẽ bắt đầu chơi lại từ đoạn đó.
+
+```dart
 GestureDetector(
 	onTap: () async {
 		await _audioPlayer.seek(Duration(milliseconds: message['timestamp']));
@@ -106,11 +110,20 @@ GestureDetector(
 
 ## Kết quả
 
-![Result](/03/image/01.png)
-
-![Result](/03/image/02.png)
+![Result](/02/image/01.png)
 
 ## ChatGPT
 
-![Result](/03/image/03.png)
-````
+![Result](/02/image/02.png)
+
+![Result](/02/image/03.png)
+
+![Result](/02/image/04.png)
+
+![Result](/02/image/05.png)
+
+![Result](/02/image/06.png)
+
+```
+
+```
